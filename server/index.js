@@ -2,10 +2,10 @@
 
 // Importar Express
 const express = require('express')
-// Configurar Express
+const routes = require('./routes')
+
 const app = express();
-app.use('/', (req, res) => {
-    res.send('NodeJS: Hi World ');
-});
+
+app.use('/', routes());
 
 app.listen(3000);
