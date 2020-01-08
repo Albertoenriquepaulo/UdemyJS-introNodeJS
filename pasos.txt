@@ -1,2 +1,5 @@
 npm init
 npm install --save nodemon body-parser express
+
+*262. creando las vistas*
+    npm install --save pug
