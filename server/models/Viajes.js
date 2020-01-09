@@ -10,7 +10,7 @@ const db = require('../config/database');
 // Definimos el modelo
 // info -> https://sequelize.org/v5/manual/models-definition.html
 // los nombres aqui usados deben ser identicos a los de la BD
-const Viaje = db.define('vaije', {
+const Viaje = db.define('viaje', {
     titulo: {
         type: Sequelize.STRING
     },

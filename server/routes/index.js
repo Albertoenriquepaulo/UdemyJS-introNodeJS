@@ -2,6 +2,9 @@
 const express = require('express');
 const router = express.Router();
 
+// Los modelos retornan siempre un promise
+const Viaje = require('../models/Viajes')
+
 module.exports = function () {
 
     router.get('/', (req, res) => {
@@ -15,9 +18,12 @@ module.exports = function () {
     });
 
     router.get('/viajes', (req, res) => {
-        res.render('viajes', {
-            pagina: 'Próximos Viajes'
-        });
+        Viaje.findAll()
+            .then((viajes) => res.render('viajes', {
+                pagina: 'Próximos Viajes',
+                viajes // Aqui podriamos solos pasar viajes ya que la propiedad y el valor del objeto tienen el mismo nombre, es decir es lo mismo que "viajes: viajes"
+            }))
+            .catch((err) => console.log(error));
     });
     return router;
 }
