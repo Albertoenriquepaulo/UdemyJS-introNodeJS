@@ -16,6 +16,13 @@ app.set('views', path.join(__dirname, './views'));
 // Cargar una carpeta estática llamada Public
 app.use(express.static('public'));
 
+// Muestra el año actual
+app.use((req, res, next) => {
+    const fecha = new Date();
+    res.locals.fechaActual = fecha.getFullYear(); //fecha actual es como una variable que se puede leer en cualquier lugar, incluso en los templates
+    return next(); // el next es para que continue ejecutando la próxima función
+})
+
 // .use para que reaccione a todos:  get, post, etc
 app.use('/', routes());
 
