@@ -7,16 +7,13 @@ const path = require('path')
 
 const configs = require('./config');
 
-/**
- * Base de Datos usada -> https://remotemysql.com/dashboard.php
- * user: Albertoenriquepaulo@hotmail.com
- * pass:X--------T
- */
-const db = require('./config/database');
-db.authenticate()
-    .then(() => console.log('DB Connected'))
-    .catch(error => console.log(error)
-    );
+
+
+// Esto comentado fue nada mas para probar la conexión
+// db.authenticate()
+//     .then(() => console.log('DB Connected'))
+//     .catch(error => console.log(error)
+//     );
 
 const app = express();
 
