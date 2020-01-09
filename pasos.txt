@@ -3,3 +3,6 @@ npm install --save nodemon body-parser express
 
 *262. creando las vistas*
     npm install --save pug
+
+*271. Conectando a una Base de Datos con Sequelize* 
+    npm install --save mysql2 sequelize
