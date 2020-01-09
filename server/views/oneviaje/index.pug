@@ -1,0 +1,9 @@
+extends ../layout/index
+block contenido
+    //- h1=pagina es igual que escribir la linea de abajo
+    main.container.mt-5
+        .row
+            .col-md-5
+                img(src=`/img/destinos_${viaje.imagen}_ln.jpg`, class="img-fluid")
+            .col-md-7
+                h1 #{viaje.titulo}

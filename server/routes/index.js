@@ -25,5 +25,12 @@ module.exports = function () {
             }))
             .catch((err) => console.log(error));
     });
+
+    router.get('/viajes/:id', (req, res) => {
+        Viaje.findByPk(req.params.id)
+            .then(viaje => res.render('oneviaje', { viaje }))
+            .catch(error => console.log(error))
+    });
+
     return router;
 }
