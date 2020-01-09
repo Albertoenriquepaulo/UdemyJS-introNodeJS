@@ -1,4 +1,12 @@
 extends ../layout/index
 block contenido
     //- h1=pagina es igual que escribir la linea de abajo
-    h1 #{pagina} 
+    main.container.mt-5
+        .row
+            .col-md-5
+                img(src="img/nosotros.jpg", alt="Imagen de Nosotros", class="img-fluid")
+            .col-md-7
+                h1 #{pagina}
+                blockquote Maecenas congue dolor eu lectus ullamcorper, sit amet tempor est mollis. Quisque sit amet orci ac tellus imperdiet eleifend non non tortor. Integer elementum ullamcorper porttitor. Curabitur et mollis sapien. Quisque justo mi, consequat ut odio molestie, consequat eleifend orci.
+                p Praesent non ligula et turpis pretium sodales. Etiam vitae aliquam eros. Suspendisse potenti. Donec vel sollicitudin tellus, sit amet hendrerit enim. Morbi a interdum lorem. Integer ullamcorper interdum nibh, cursus sollicitudin diam molestie non. Aliquam cursus velit mauris, quis feugiat ligula posuere at. 
+                p Proin a est nec purus dictum varius sed sed nulla. Etiam et dui ultricies, porta dolor et, condimentum tortor. Pellentesque a ante elit. Donec consectetur dolor quis rutrum varius. 
