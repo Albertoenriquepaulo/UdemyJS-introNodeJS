@@ -1,0 +1,21 @@
+extends ../layout/index
+block contenido
+    //- h1=pagina es igual que escribir la linea de abajo
+    main.container.mt-5
+        h1.text-center.mb-5 #{pagina}
+
+        .row
+            .col-md-12
+                .row.justify-content-center
+                    .col-md-8
+                        form
+                            .form-group
+                                label(for="nombre") Nombre
+                                input(id="nombre", class="form-control", type="text", placeholder="Tu nombre", name="nombre")
+                            .form-group
+                                label(for="correo") Email
+                                input(id="correo", class="form-control", type="email", placeholder="Tu email", name="correo")
+                            .form-group
+                                label(for="mensaje") Mensaje
+                                textarea#mensaje(class="form-control", name="mensaje", rows="3", placeholder="Tu Mensaje")
+                            input(class="btn btn-success btn-block",type="button", value="Agregar")
