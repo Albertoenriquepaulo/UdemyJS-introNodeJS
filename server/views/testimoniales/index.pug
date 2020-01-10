@@ -11,13 +11,13 @@ block contenido
                         form(action='/testimoniales', method="POST")
                             .form-group
                                 label(for="nombre") Nombre
-                                input(id="nombre", class="form-control", type="text", placeholder="Tu nombre", name="nombre")
+                                input(id="nombre", class="form-control", type="text", placeholder="Tu nombre", name="nombre", value=nombre)
                             .form-group
                                 label(for="correo") Email
-                                input(id="correo", class="form-control", type="email", placeholder="Tu email", name="correo")
+                                input(id="correo", class="form-control", type="email", placeholder="Tu email", name="correo", value=correo)
                             .form-group
                                 label(for="mensaje") Mensaje
-                                textarea#mensaje(class="form-control", name="mensaje", rows="3", placeholder="Tu Mensaje")
+                                textarea#mensaje(class="form-control", name="mensaje", rows="3", placeholder="Tu Mensaje")=mensaje
                             //input.btn.btn-success.btn-block(type="submit", value="Agregar"), lo mismo de abajo
                             input(class="btn btn-success btn-block",type="submit", value="Agregar")
                             
