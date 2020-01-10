@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 // Los modelos retornan siempre un promise
-const Viaje = require('../models/Viajes')
+const Viaje = require('../models/Viajes');
+const Testimonial = require('../models/Testimoniales');
 
 module.exports = function () {
 
@@ -74,6 +75,13 @@ module.exports = function () {
             })
         } else {
             // almacenar en el BD
+            Testimonial.create({
+                nombre,
+                correo,
+                mensaje
+            })
+                .then(testimoniales => res.redirect('/testimoniales'))
+                .catch(error => console.log(error))
         }
 
     });
