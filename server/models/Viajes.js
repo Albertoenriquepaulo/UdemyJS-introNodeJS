@@ -7,6 +7,10 @@ const Sequelize = require('sequelize');
  */
 const db = require('../config/database');
 
+//Mensaje en consola que me indica si está o no conectado
+db.authenticate()
+    .then(() => console.log('DB CONECTED...!!!'))
+    .catch(error => console.log(error));
 // Definimos el modelo
 // info -> https://sequelize.org/v5/manual/models-definition.html
 // los nombres aqui usados deben ser identicos a los de la BD
