@@ -38,5 +38,34 @@ module.exports = function () {
         });
     });
 
+    // Cuando se llena el formulario
+    router.post('/testimoniales', (req, res) => {
+        // Para que el request.body pueda funcionar debe estar en el package.json
+        // La dependcia "body-parser": "^1.19.0",
+        // Y en el index.js el -> | const bodyParser = require('body-parser');|
+        console.log(req.body);
+        // Validar que todos los campos estén llenos
+        let { nombre, correo, mensaje } = req.body;
+        let errores = [];
+        if (!nombre) {
+            errores.push({ 'mensaje': 'Agrega tu nombre' });
+        }
+        if (!correo) {
+            errores.push({ 'mensaje': 'Agrega tu correo' });
+        }
+        if (!mensaje) {
+            errores.push({ 'mensaje': 'Agrega tu mensaje' });
+        }
+
+        //Revisar por errores
+        if (errores.length > 0) {
+            // muestra la vista con errores
+
+        } else {
+            // almacenar en el BD
+        }
+
+    });
+
     return router;
 }

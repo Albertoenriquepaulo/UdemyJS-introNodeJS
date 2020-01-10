@@ -8,7 +8,7 @@ block contenido
             .col-md-12
                 .row.justify-content-center
                     .col-md-8
-                        form
+                        form(action='/testimoniales', method="POST")
                             .form-group
                                 label(for="nombre") Nombre
                                 input(id="nombre", class="form-control", type="text", placeholder="Tu nombre", name="nombre")
@@ -19,5 +19,5 @@ block contenido
                                 label(for="mensaje") Mensaje
                                 textarea#mensaje(class="form-control", name="mensaje", rows="3", placeholder="Tu Mensaje")
                             //input.btn.btn-success.btn-block(type="submit", value="Agregar"), lo mismo de abajo
-                            input(class="btn btn-success btn-block",type="button", value="Agregar")
+                            input(class="btn btn-success btn-block",type="submit", value="Agregar")
                             

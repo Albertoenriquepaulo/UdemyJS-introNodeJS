@@ -1,9 +1,10 @@
 //ESTAS LINEAS CONFIGURAN EL SERVIDOR LOCAL
 
 // Importar Express
-const express = require('express')
-const routes = require('./routes')
-const path = require('path')
+const express = require('express');
+const routes = require('./routes');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 const configs = require('./config');
 
@@ -40,7 +41,12 @@ app.use((req, res, next) => {
     return next(); // el next es para que continue ejecutando la próxima función
 })
 
+// ejecutamos el bodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // .use para que reaccione a todos:  get, post, etc
+// Cargar las rutas
 app.use('/', routes());
 
 app.listen(3000);
+console.log('Running in http://localhost:3000/');
