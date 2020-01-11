@@ -41,6 +41,8 @@ app.use((req, res, next) => {
     res.locals.ruta = req.path;
     console.log(res.locals);
     return next(); // el next es para que continue ejecutando la próxima función
+    //El next también significa que estamos usando el middleware
+    //Esto es como decodeURI, realiza las aciones que te digo arriba y después continua
 })
 
 // ejecutamos el bodyParser
