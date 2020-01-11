@@ -5,3 +5,6 @@ exports.infoNosotros = (req, res) => {
         pagina: 'Sobre Nosotros'
     });
 }
+
+
+// ESTE CONTROLADOR NO REQUIERE ASYNC / AWAIT

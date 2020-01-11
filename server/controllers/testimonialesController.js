@@ -1,15 +1,14 @@
 const Testimonial = require('../models/Testimoniales');
 
-exports.mostrarTestimoniales = (req, res) => {
-    Testimonial.findAll()
-        .then(testimoniales => res.render('testimoniales', {
-            pagina: 'Testimoniales',
-            testimoniales: testimoniales
-        }))
-
+exports.mostrarTestimoniales = async (req, res) => {
+    const testimoniales = await Testimonial.findAll();
+    res.render('testimoniales', {
+        pagina: 'Testimoniales',
+        testimoniales: testimoniales
+    });
 }
 
-exports.agregarTestimonial = (req, res) => {
+exports.agregarTestimonial = async (req, res) => {
     // Para que el request.body pueda funcionar debe estar en el package.json
     // La dependcia "body-parser": "^1.19.0",
     // Y en el index.js el -> | const bodyParser = require('body-parser');|
@@ -31,12 +30,16 @@ exports.agregarTestimonial = (req, res) => {
 
     //Revisar por errores
     if (errores.length > 0) {
+        const testimoniales = await Testimonial.findAll();
+
         // muestra la vista con errores
         res.render('testimoniales', {
             errores,
             nombre,
             correo,
-            mensaje
+            mensaje,
+            pagina: 'Testimoniales',
+            testimoniales
             // Pasamos nombre, correo, mensaje para que en caso que ocurra error 
             //no se pierda la info ya colocada por el usuario
             // Y asi colocamos en en cada input del html en el campo value cada uno
@@ -44,13 +47,12 @@ exports.agregarTestimonial = (req, res) => {
         })
     } else {
         // almacenar en el BD
-        Testimonial.create({
+        const testimonial = await Testimonial.create({
             nombre,
             correo,
             mensaje
-        })
-            .then(testimoniales => res.redirect('/testimoniales'))
-            .catch(error => console.log(error))
+        });
+        res.redirect('/testimoniales');
     }
 
 }
