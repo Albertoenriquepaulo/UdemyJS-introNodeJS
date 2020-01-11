@@ -9,14 +9,25 @@ const Testimonial = require('../models/Testimoniales');
 module.exports = function () {
 
     router.get('/', (req, res) => {
-        Viaje.findAll({
+        const promises = [];
+
+        promises.push(Viaje.findAll({
             limit: 3
-        })
-            .then((viajes) => res.render('index', {
-                pagina: 'Próximos Viajes',
-                clase: 'home',
-                viajes // Aqui podriamos solos pasar viajes ya que la propiedad y el valor del objeto tienen el mismo nombre, es decir es lo mismo que "viajes: viajes"
-            }))
+        }));
+
+        promises.push(Testimonial.findAll({
+            limit: 3
+        }));
+
+        //Pasar el promise y ejecutarlo
+        const resultado = Promise.all(promises);
+
+        resultado.then((resultado) => res.render('index', {
+            pagina: 'Próximos Viajes',
+            clase: 'home',
+            viajes: resultado[0],
+            testimoniales: resultado[1]
+        }))
             .catch((err) => console.log(error));
     });
 
