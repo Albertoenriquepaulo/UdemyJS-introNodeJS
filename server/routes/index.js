@@ -2,40 +2,15 @@
 const express = require('express');
 const router = express.Router();
 
-// Los modelos retornan siempre un promise
-const Viaje = require('../models/Viajes');
-const Testimonial = require('../models/Testimoniales');
-
+//No es obligatorio que tenga este nombre puede ser cualquiera
+// CONTROLADORES, estos dos que estan aqui abajo
+const nosotrosController = require('../controllers/nosotrosController');
+const homeController = require('../controllers/homeController');
 module.exports = function () {
 
-    router.get('/', (req, res) => {
-        const promises = [];
+    router.get('/', homeController.consultasHomePage);
 
-        promises.push(Viaje.findAll({
-            limit: 3
-        }));
-
-        promises.push(Testimonial.findAll({
-            limit: 3
-        }));
-
-        //Pasar el promise y ejecutarlo
-        const resultado = Promise.all(promises);
-
-        resultado.then((resultado) => res.render('index', {
-            pagina: 'Próximos Viajes',
-            clase: 'home',
-            viajes: resultado[0],
-            testimoniales: resultado[1]
-        }))
-            .catch((err) => console.log(error));
-    });
-
-    router.get('/nosotros', (req, res) => {
-        res.render('nosotros', {
-            pagina: 'Sobre Nosotros'
-        });
-    });
+    router.get('/nosotros', nosotrosController.infoNosotros);
 
     router.get('/viajes', (req, res) => {
         Viaje.findAll()
