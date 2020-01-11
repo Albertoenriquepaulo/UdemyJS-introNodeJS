@@ -6,3 +6,7 @@ npm install --save nodemon body-parser express
 
 *271. Conectando a una Base de Datos con Sequelize* 
     npm install --save mysql2 sequelize
+
+*295. Preparando el proyecto para deployment - variables de entorno (BD)
+Esta dependencia nos va permitir generar variables de entorno
+npm install --save-dev dotenv
