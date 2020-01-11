@@ -9,9 +9,15 @@ const Testimonial = require('../models/Testimoniales');
 module.exports = function () {
 
     router.get('/', (req, res) => {
-        res.render('index', {
-            clase: 'home'
-        });
+        Viaje.findAll({
+            limit: 3
+        })
+            .then((viajes) => res.render('index', {
+                pagina: 'Próximos Viajes',
+                clase: 'home',
+                viajes // Aqui podriamos solos pasar viajes ya que la propiedad y el valor del objeto tienen el mismo nombre, es decir es lo mismo que "viajes: viajes"
+            }))
+            .catch((err) => console.log(error));
     });
 
     router.get('/nosotros', (req, res) => {
