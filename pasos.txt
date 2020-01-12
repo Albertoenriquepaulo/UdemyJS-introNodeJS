@@ -10,3 +10,7 @@ npm install --save nodemon body-parser express
 *295. Preparando el proyecto para deployment - variables de entorno (BD)
 Esta dependencia nos va permitir generar variables de entorno
 npm install --save-dev dotenv
+
+*298. Deployment a Heroku
+Ya instaldo y registrado en Heroku
+heroku create --remote production
