@@ -52,5 +52,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Cargar las rutas
 app.use('/', routes());
 
-app.listen(3000);
+// Esztas dos variables que vienen son para HEROKU, el se encarga de asignar
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 3000
+/** Puerto y Host para la app */
+app.listen(port, host, () => {
+    console.log('The Server is Running');
+});
 console.log('Running in http://localhost:3000/');
